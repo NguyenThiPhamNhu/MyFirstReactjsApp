@@ -24,6 +24,7 @@ class ProductItem extends Component {
         }  
     }
     
+    
     render() {
         return (
             <div >
@@ -36,22 +37,37 @@ class ProductItem extends Component {
                         <img src={"Image/"+this.props.item.image} />
                         <div className="caption">
                         <form className="AddProduct" >
-                            <h3 className="title">{this.props.item.title}</h3>
+                            <b><h2 className="typeroom">{this.props.item.typeroom}</h2></b>
                             
-                            <p className="price">
+                            <p className="name">
                             <h4>
-                            {this.props.item.price} Vnđ
+                            Room : {this.props.item.name} 
                             </h4>
                             </p>
-                            <p className="cate">
+                            <p className="number">
                             <h4>
-                            {this.props.item.cate} 
+                            Number : {this.props.item.number} 
+                            </h4>
+                            </p>
+                            <p className="area">
+                            <h4>
+                            Size : {this.props.item.area} 
+                            </h4>
+                            </p>
+                            <p className="price">
+                            <h4>
+                            Price: {this.props.item.price} 
+                            </h4>
+                            </p>
+                            <p >
+                            <h4>
+                            <a href="#" className="btn btn-default"  >View</a>:  
                             </h4>
                             </p>
                             <p>
                                 <button className="btn btn-info "  type="submit" onClick = {this.props.onItemClick}>Add</button>
                                 
-                                <a href="#" className="btn btn-default"  >Detail</a>
+                                {/* <a href="#" className="btn btn-default"  >Detail</a> */}
                             </p>
                             </form>
                         </div>

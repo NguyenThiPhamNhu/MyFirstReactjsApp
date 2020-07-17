@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import ProductItem from './ProductItem';
 
 class Products extends Component {
-   
+
 
     constructor() {
         super();
@@ -11,36 +11,37 @@ class Products extends Component {
         if (!this.products) {
             this.products = [];
         }
+       
     }
     // sortByPriceAsc() {
     //     this.setState(prevState => {
     //       this.state.products.sort((a, b) => (a.price - b.price))
     //   });
     //   }
-    sortByPriceAsc=()=>{
+    sortByPriceAsc = () => {
 
         let sortedProductsAsc;
-        sortedProductsAsc= this.products.sort((a,b)=>{
-           return parseInt(a.price)  - parseInt(b.price);
+        sortedProductsAsc = this.products.sort((a, b) => {
+            return parseInt(a.price) - parseInt(b.price);
         })
-    
+
         this.setState({
-            products:sortedProductsAsc
-        })
-      }
-    
-      sortByPriceDsc=()=>{
-    
-        let sortedProductsDsc;
-        sortedProductsDsc= this.products.sort((a,b)=>{
-           return parseInt(b.price)  - parseInt(a.price);
-        })
-        
-        this.setState({
-            products:sortedProductsDsc
+            products: sortedProductsAsc
         })
     }
-    
+
+    sortByPriceDsc = () => {
+
+        let sortedProductsDsc;
+        sortedProductsDsc = this.products.sort((a, b) => {
+            return parseInt(b.price) - parseInt(a.price);
+        })
+
+        this.setState({
+            products: sortedProductsDsc
+        })
+    }
+
     onItemClick(item) {
         console.log("a");
         return (event) => {
@@ -60,8 +61,7 @@ class Products extends Component {
             console.log(cart);
         }
     }
-
-    
+  
 
     render() {
         return (
@@ -70,22 +70,23 @@ class Products extends Component {
             <div>
 
                 <center>You wanna: <button type="button" class="btn btn-success" onClick={this.sortByPriceAsc} >Tang</button>
-                <button type="button" class="btn btn-danger" onClick={this.sortByPriceDsc}>Giam</button></center>
+                    <button type="button" class="btn btn-danger" onClick={this.sortByPriceDsc}>Giam</button></center>
+                
                 {this.products.map((item, index) =>
                     <ProductItem onItemClick={this.onItemClick(item)} item={item} />)}
 
-                    <div>
-                        
-                        <div class="panel panel-default">
-                              <div class="panel-body">
-                                    <center><h5><b>VIT LOSHIP</b></h5></center>
-                              </div>
-                              <div class="panel-footer">
-                                  <center> <h5><b> COPYRIGHT BY VIT</b></h5> </center>
-                                </div>
+                <div>
+
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <center><h5><b>VIT LOSHIP</b></h5></center>
                         </div>
-                        
+                        <div class="panel-footer">
+                            <center> <h5><b> COPYRIGHT BY VIT</b></h5> </center>
+                        </div>
                     </div>
+
+                </div>
             </div>
 
         );

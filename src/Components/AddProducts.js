@@ -6,15 +6,21 @@ class AddProduct extends Component {
 
     onAddProduct(event) {
         event.preventDefault();
-        let title = event.target["title"].value;
+        let name = event.target["name"].value;
+        let number = event.target["number"].value;
+        let area = event.target["area"].value;
         let price = event.target["price"].value;
-        let cate = event.target["cate"].value;
+        let oldprice = event.target["oldprice"].value;
+        let typeroom = event.target["typeroom"].value;
         let image = event.target["image"].files.item(0).name;
 
         let product = {
-            title: title,
-            price: price,
-            cate: cate,
+            name: name,
+            number: number,
+            area: area,
+            price:price,
+            oldprice:oldprice,
+            typeroom: typeroom,
             image: image
         }
         let products = JSON.parse(localStorage.getItem("lsc-products"));
@@ -34,18 +40,27 @@ class AddProduct extends Component {
                 <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
                 <form className="AddProduct" onSubmit={this.onAddProduct}>
-                    <label for="sel1">Entry Title:</label>
-                    <input width="300px" className="form-control mr-sm-2" type="text" name="title" placeholder="title" />
+                    <label for="sel1">Entry Name:</label>
+                    <input width="300px" className="form-control mr-sm-2" type="text" name="name" placeholder="name" />
+
+                    <label for="sel1">Entry Number:</label>
+                    <input className="form-control mr-sm-2" type="text" name="number" placeholder="number" />
+
+                    <label for="sel1">Entry Size:</label>
+                    <input className="form-control mr-sm-2" type="text" name="area" placeholder="area" />
 
                     <label for="sel1">Entry Price:</label>
                     <input className="form-control mr-sm-2" type="text" name="price" placeholder="price" />
 
-                    <label for="sel1">Select categories (select one):</label>
-                    <select width="200px" class="form-control" name="cate" id="sel1">
-                        <option>Guitar</option>
-                        <option>Ukulele</option>
-                        <option>Cajon</option>
-                        <option>Piano</option>
+                    <label for="sel1">Entry Old Price:</label>
+                    <input className="form-control mr-sm-2" type="text" name="oldprice" placeholder="oldprice" />
+
+                    <label for="sel1">Select typeroom (select one):</label>
+                    <select width="200px" class="form-control" name="typeroom" id="sel1">
+                        <option>Family</option>
+                        <option>Luxury Double</option>
+                        <option>Luxury Triple</option>
+                        <option>Super vip</option>
                     </select>
 
                     

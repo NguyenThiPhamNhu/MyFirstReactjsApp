@@ -14,22 +14,11 @@ class App extends Component {
         this.onAddProductsClicked = this.onAddProductsClicked.bind(this);
         this.onCartClicked = this.onCartClicked.bind(this);
         this.onPayClicked = this.onPayClicked.bind(this);
-        this.handleChange = this.handleChange.bind(this);
+     
 
 
     }
 
-    handleChange(e) {
-        console.log(e.target.value); 
-        let object = document.getElementById("title");
-        console.log(object); 
-
-        let searchBarText = e.target.value;
-        let divText = object;
-        
-            console.log("the div text contains your search text");
-       
-    }
     onProductsClicked() {
         this.setState({
             menu: "products"
@@ -52,6 +41,7 @@ class App extends Component {
             menu: "cart"
         })
     }
+    
 
     render() {
       
@@ -94,6 +84,7 @@ class App extends Component {
                         </div>
                     </nav>
                 </div>
+
                 <center><h1>Welcome To VIT Guitar Shop</h1></center>
                 <center><div className="Menu">
                     <button className="bt" class="btn btn-success" onClick={this.onProductsClicked}>Product</button>
